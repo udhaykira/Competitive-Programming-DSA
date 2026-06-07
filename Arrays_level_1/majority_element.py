@@ -1,10 +1,10 @@
 """
+LeetCode : 169
+Majority Element
 
 Given an array nums of size n, return the majority element.
 
 The majority element is the element that appears more than ⌊n / 2⌋ times. You may assume that the majority element always exists in the array.
-
- 
 
 Example 1:
 
@@ -18,7 +18,7 @@ Output: 2
 """
 
 class Solution:
-    def majorityElement(self, nums):
+    def majorityElement(self, nums: List[int]) -> int:
         cand = None
         c = 0
         for i in range(len(nums)):
@@ -30,6 +30,7 @@ class Solution:
             else:
                 c = c - 1
         return cand
+
 
 # Example usage:
 solution = Solution()
