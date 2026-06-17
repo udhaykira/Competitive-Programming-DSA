@@ -13,21 +13,25 @@ Output: [2,4]
 Explanation: Number 2 is repeated and number 4 is missing so the answer is [2,4].
 
 """
+
 class Solution:
-    def findMissingAndRepeatedValues(self, grid):
+    def findMissingAndRepeatedValues(self, grid: list[list[int]]) -> list[int]:
         n = len(grid)
-        s = set()
+        unique = set()
         result = []
-        for i in range(len(grid)):
-            for j in range(len(grid[i])):
-                if grid[i][j] in s:
+
+        for i in range(n):
+            for j in range(n):
+                if grid[i][j] in unique:
                     result.append(grid[i][j])
                 else:
-                    s.add(grid[i][j])
-        for i in range(1,n*n + 1):
-            if i not in s:
+                    unique.add(grid[i][j])
+
+        for i in range(1, n*n + 1):
+            if i not in unique:
                 result.append(i)
                 break
+        
         return result
 
 # Example usage:

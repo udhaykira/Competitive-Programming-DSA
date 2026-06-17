@@ -17,7 +17,7 @@ Output: [1,2,3,4,8,12,11,10,9,5,6,7]
 """
 
 class Solution:
-    def spiralOrder(self, matrix):
+    def spiralOrder(self, matrix: list[list[int]]) -> list[int]:
         m = len(matrix)
         n = len(matrix[0])
         res = []

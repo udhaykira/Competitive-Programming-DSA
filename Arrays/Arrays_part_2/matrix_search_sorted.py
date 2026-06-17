@@ -10,33 +10,35 @@ Given an integer target, return true if target is in matrix or false otherwise.
 
 You must write a solution in O(log(m * n)) time complexity.
 
- 
-
 Example 1:
-
 
 Input: matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]], target = 3
 Output: true
-Example 2:
 
+Example 2:
 
 Input: matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]], target = 13
 Output: false
 
 """
-class Solution:
-    def searchMatrix(self, matrix, target):
-        m = len(matrix)
-        n = len(matrix[0])
 
-        i,j = 0,n-1
-        while i<m and j>=0:
-            if target==matrix[i][j]:
+class Solution:
+    def searchMatrix(self, matrix: list[list[int]], target: int) -> bool:
+        rows = len(matrix)
+        cols = len(matrix[0])
+        left, right = 0, rows*cols-1
+
+        while left<=right:
+            mid = (left+right)//2
+            row = mid//cols
+            col = mid%cols
+
+            if matrix[row][col]==target:
                 return True
-            elif target < matrix[i][j]:
-                j-=1
+            elif matrix[row][col]<target:
+                left = mid+1
             else:
-                i+=1
+                right = mid-1
         return False
 
 # Example usage:

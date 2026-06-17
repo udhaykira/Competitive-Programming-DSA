@@ -19,7 +19,7 @@ Note that buying on day 2 and selling on day 1 is not allowed because you must b
 """
 
 class Solution:
-    def maxProfit(self, prices):
+    def maxProfit(self, prices: list[int]) -> int:
         max_profit = 0
         curr_price = prices[0]
         for i in range(1,len(prices)):

@@ -18,32 +18,36 @@ The distinct triplets are [-1,0,1] and [-1,-1,2].
 Notice that the order of the output and the order of the triplets does not matter.
 
 """
+
 class Solution:
-    def threeSum(self, nums)
+    def threeSum(self, nums: list[int]) -> list[list[int]]:
         nums.sort()
-        n = len(nums)
         result = []
+        n = len(nums)
+
         for i in range(n-2):
             if i>0 and nums[i]==nums[i-1]:
                 continue
             target = -nums[i]
             left = i + 1
             right = n - 1
+
             while left<right:
-                c_sum = nums[left]+nums[right]
-                if c_sum==target:
-                    result.append([nums[i],nums[left],nums[right]])
-                    left+=1
+                ans = nums[left]+nums[right]
+                if ans==target:
+                    result.append([nums[i], nums[left], nums[right]])
+                    left += 1
                     while left<right and nums[left]==nums[left-1]:
                         left+=1
-                    right-=1
+                    right -= 1
                     while left<right and nums[right]==nums[right+1]:
                         right-=1
                 else:
-                    if c_sum<target:
-                        left+=1
+                    if ans<target:
+                        left += 1
                     else:
-                        right-=1
+                        right -= 1
+
         return result
 
 # Example usage:

@@ -18,10 +18,11 @@ The result of the merge is [1,2,2,3,5,6] with the underlined elements coming fro
 """
 
 class Solution:
-    def merge(self, nums1, m, nums2, n):
+    def merge(self, nums1: list[int], m: int, nums2: list[int], n: int) -> None:
         """
         Do not return anything, modify nums1 in-place instead.
         """
+
         k = m + n - 1
         i = m - 1
         j = n - 1
@@ -33,6 +34,7 @@ class Solution:
                 nums1[k]=nums2[j]
                 j-=1
             k-=1
+        
 
 # Example usage:
 solution = Solution()

@@ -25,11 +25,12 @@ class Solution:
             temp*=x
         return temp
 
-    def myPow(self, x, n):
+    def myPow(self, x: float, n: int) -> float:
         if n<0:
             n=-n
             return 1/self.helper(x,n)
         return self.helper(x,n)
+        
 
 # Example usage:
 solution = Solution()

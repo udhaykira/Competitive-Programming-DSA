@@ -14,16 +14,16 @@ Given an array of integers nums, find the next permutation of nums.
 
 The replacement must be in place and use only constant extra memory.
 
- 
-
 Example 1:
 
 Input: nums = [1,2,3]
 Output: [1,3,2]
+
 Example 2:
 
 Input: nums = [3,2,1]
 Output: [1,2,3]
+
 Example 3:
 
 Input: nums = [1,1,5]
@@ -32,7 +32,7 @@ Output: [1,5,1]
 """
 
 class Solution:
-    def nextPermutation(self, nums: List[int]) -> None:
+    def nextPermutation(self, nums: list[int]) -> None:
         """
         Do not return anything, modify nums in-place instead.
         """
@@ -45,14 +45,11 @@ class Solution:
         if pivot==-1:
             nums.sort()
             return nums
-        else:
-            min_idx = pivot+1
-            for i in range(pivot+1,n):
-                if nums[i]>nums[pivot] and nums[i]<=nums[min_idx]:
-                    min_idx = i
-            nums[pivot],nums[min_idx] = nums[min_idx], nums[pivot]
-            nums[pivot+1:] = nums[pivot+1:][::-1]
-            return nums
-                
+        for i in range(n-1,pivot,-1):
+            if nums[i]>nums[pivot]:
+                nums[pivot],nums[i] = nums[i], nums[pivot]
+                break
+        nums[pivot+1:] = nums[pivot+1:][::-1]
+        return nums            
         
         

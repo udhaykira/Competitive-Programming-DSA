@@ -13,8 +13,9 @@ Input: matrix = [[1,4,7,11,15],[2,5,8,12,19],[3,6,9,16,22],[10,13,14,17,24],[18,
 Output: true
 
 """
+
 class Solution:
-    def searchMatrix(self, matrix, target):
+    def searchMatrix(self, matrix: list[list[int]], target: int) -> bool:
         r,c = 0, len(matrix[0])-1
         while r<len(matrix) and c>=0:
             if matrix[r][c]==target:
@@ -24,6 +25,3 @@ class Solution:
             else:
                c-=1
         return False
-
-
-

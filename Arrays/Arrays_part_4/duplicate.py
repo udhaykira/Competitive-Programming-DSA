@@ -16,8 +16,7 @@ Output: 2
 """
 
 class Solution:
-    def findDuplicate(self, nums):
-        n = len(nums)
+    def findDuplicate(self, nums: list[int]) -> int:
         s = set()
         for i in nums:
             if i in s:

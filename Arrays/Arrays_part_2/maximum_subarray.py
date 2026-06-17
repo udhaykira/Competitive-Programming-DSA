@@ -1,6 +1,7 @@
 """
 LeetCode : 53 
 Maximum Subarray & Kadane Algorithm
+
 Given an integer array nums, find the subarray with the largest sum, and return its sum.
 
 Example 1:
@@ -18,7 +19,7 @@ Explanation: The subarray [1] has the largest sum 1.
 """
 
 class Solution:
-    def maxSubArray(self, nums):
+    def maxSubArray(self, nums: list[int]) -> int:
         curr_sum = max_sum = nums[0]
         for i in range(1,len(nums)):
             curr_sum = max(nums[i],curr_sum + nums[i])

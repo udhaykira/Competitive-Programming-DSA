@@ -22,7 +22,7 @@ Output: [0,1,2]
 # Dutch National Flag Algorithm.
 
 class Solution:
-    def sortColors(self, nums) -> None:
+    def sortColors(self, nums: list[int]) -> None:
         """
         Do not return anything, modify nums in-place instead.
         """
