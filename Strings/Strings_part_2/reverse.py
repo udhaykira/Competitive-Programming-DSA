@@ -17,11 +17,12 @@ Output: "blue is sky the"
 """
 
 class Solution:
-    def reverseWords(self, s):
+    def reverseWords(self, s: str) -> str:
         s = s.strip()
         s = s.split()
         s = s[::-1]
         return " ".join(s)
+        
 # Example usage:
 solution = Solution()
 s = "the sky is blue"
