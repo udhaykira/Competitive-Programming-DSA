@@ -21,18 +21,20 @@ Now s has no occurrences of "abc".
 
 """
 class Solution:
-    def removeOccurrences(self, s, part):
+    def removeOccurrences(self, s: str, part: str) -> str:
         if part not in s:
             return s
         else:
+            # while part in s:
+            #     start = s.find(part) 
+            #     stop = start + len(part)
+            #     s = s[:start] + s[stop:]
+            # return s
             while part in s:
-                start = s.find(part) 
-                stop = start + len(part)
-                # print(start,stop)
-                s = s[:start] + s[stop:]
-                # print(s)
+                s = s.replace(part,"",1)
             return s
-
+        
+        
 # Example usage:
 solution = Solution()
 s = "daabcbaabcbc"

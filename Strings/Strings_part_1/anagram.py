@@ -7,12 +7,11 @@ Given two strings s and t, return true if t is an anagram of s, and false otherw
 Example 1:
 
 Input: s = "anagram", t = "nagaram"
-
 Output: true
 """
 
 class Solution:
-    def isAnagram(self, s, tr):
+    def isAnagram(self, s: str, t: str) -> bool:
         n1 = len(s)
         n2 = len(t)
         if n1!=n2:

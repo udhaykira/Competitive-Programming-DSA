@@ -25,33 +25,25 @@ Explanation: The groups are "aa", "bb", and "ccc". This compresses to "a2b2c3".
 """
 
 class Solution:
-    def compress(self, chars):
-        res = []
-        if len(chars)<=1:
-            return len(chars)
-        c=1
-        for i in range(1,len(chars)):
-            if chars[i]==chars[i-1]:
-                c+=1          
-            else:
-                res.append(chars[i-1])
-                if c==1:
-                    pass
-                elif c<10:
-                    res.append(str(c))
-                else:
-                    res.extend(list(str(c)))
-                c=1
-        if c==1:
-            res.append(chars[-1])
-        elif c<10:
-            res.append(chars[-1])
-            res.append(str(c))
-        else:
-            res.append(chars[-1])
-            res.extend(list(str(c)))
-        chars[:]=res[:]
-        return len(res)
+    def compress(self, chars: list[str]) -> int:
+        n = len(chars)
+        idx = 0
+        current = 0
+
+        while idx<n:
+            char = chars[idx]
+            count = 0
+            while idx<n and chars[idx]==char:
+                idx+=1
+                count+=1
+            chars[current]=char
+            current+=1
+
+            if count>1:
+                for digit in str(count):
+                    chars[current]=digit
+                    current+=1
+        return current
 
 # Example usage:
 solution = Solution()

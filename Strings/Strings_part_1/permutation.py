@@ -15,25 +15,23 @@ Explanation: s2 contains one permutation of s1 ("ba").
 """
 
 class Solution:
-    def checkInclusion(self, s1, s2):
-        d1 = {}
-        for i in s1:
-            if i in d1:
-                d1[i]+=1
-            else:
-                d1[i]=1
-        k = len(s1)
-        for i in range(len(s2)-k+1):
-            curr = s2[i:i+k]
-            d2 = {}
-            for j in curr:
-                if j in d2:
-                    d2[j]+=1
-                else:
-                    d2[j]=1
-            if d1 == d2:
+    def checkInclusion(self, s1: str, s2: str) -> bool:
+        m = len(s1)
+        n = len(s2)
+        if m>n:
+            return False
+        ans = [0]*26
+        for ch in s1:
+            ans[ord(ch)-ord('a')]+=1
+        cmp = [0]*26
+        for ch in s2[:m]:
+            cmp[ord(ch)-ord('a')]+=1
+        for i in range(m,n):
+            if cmp==ans:
                 return True
-        return False
+            cmp[ord(s2[i-m])-ord('a')]-=1
+            cmp[ord(s2[i])-ord('a')]+=1
+        return cmp==ans
 
 # Example usage:
 solution = Solution()

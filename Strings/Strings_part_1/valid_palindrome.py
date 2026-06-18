@@ -14,7 +14,7 @@ Explanation: "amanaplanacanalpanama" is a palindrome
 """
 
 class Solution:
-    def isPalindrome(self, s):
+    def isPalindrome(self, s: str) -> bool:
         res = []
         for i in s:
             if i.isalnum():
