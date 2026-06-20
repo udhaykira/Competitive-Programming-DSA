@@ -13,13 +13,11 @@ Every close bracket has a corresponding open bracket of the same type.
 Example 1:
 
 Input: s = "()"
-
 Output: true
 
 Example 2:
 
 Input: s = "()[]{}"
-
 Output: true
 
 """
