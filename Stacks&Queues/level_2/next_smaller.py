@@ -17,20 +17,22 @@ There are no elements smaller than 4 having index > 4.
 """
 
 class Solution:
-	def nextSmallerEle(self, arr):
-		# code here
-		stack = []
-		n = len(arr)
-		ans = [-1]*n
-		
-		for i in range(n-1,-1,-1):
-		    while stack and stack[-1]>=arr[i]:
-		        stack.pop()
-		    
-		    if stack:
-		        ans[i]=stack[-1]
-		    
-		    stack.append(arr[i])
-		
-		return ans
-		
+    def nextSmallerEle(self, arr):
+        stack = []
+        n = len(arr)
+        ans = [-1] * n
+        
+        # Traverse from right to left
+        for i in range(n - 1, -1, -1):
+            # Pop elements that are greater than or equal to the current element
+            while stack and stack[-1] >= arr[i]:
+                stack.pop()
+            
+            # If stack is not empty, the top element is the next smaller element
+            if stack:
+                ans[i] = stack[-1]
+            
+            # Push the current element onto the stack
+            stack.append(arr[i])
+        
+        return ans
