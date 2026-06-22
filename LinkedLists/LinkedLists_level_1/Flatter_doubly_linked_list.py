@@ -16,33 +16,37 @@ Output: [1,2,3,7,8,11,12,9,10,4,5,6]
 """
 
 
+from typing import Optional
+
 # Definition for a Node.
-# class Node:
-#     def __init__(self, val, prev, next, child):
-#         self.val = val
-#         self.prev = prev
-#         self.next = next
-#         self.child = child
+class Node:
+    def __init__(self, val, prev, next, child):
+        self.val = val
+        self.prev = prev
+        self.next = next
+        self.child = child
 
 class Solution:
     def flatten(self, head: 'Optional[Node]') -> 'Optional[Node]':
-        if head is None:
-            return None
-        curr = head
         stack = []
+        curr = head
         while curr:
-            if curr.child is None:
-                if curr.next is None and stack!=[]:
-                    last_node = stack.pop()
-                    curr.next = last_node
-                    last_node.prev = curr
-                curr = curr.next
+            if not curr.child:
+                if curr.next:
+                    curr = curr.next
+                else:
+                    if stack:
+                        node = stack.pop()
+                        curr.next = node
+                        node.prev = curr
+                    curr = curr.next
             else:
                 if curr.next:
                     stack.append(curr.next)
-                curr.next = curr.child
-                curr.child.prev = curr
+                nxt = curr.child
+                curr.next = nxt
+                nxt.prev = curr
                 curr.child = None
-                curr = curr.next
+                curr = nxt
         return head
         
