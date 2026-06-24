@@ -10,6 +10,9 @@ Input: head = [4,2,1,3]
 Output: [1,2,3,4]
 
 """
+
+from typing import Optional
+
 # Definition for singly-linked list.
 class ListNode:
     def __init__(self, val=0, next=None):
